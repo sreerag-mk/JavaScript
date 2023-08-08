@@ -1,8 +1,8 @@
+array1 = ['car', 1, 5, 'js', 'node js', 'mysql', 'sql' ];
 // 1. ['car', 1, 5, 'js', 'node js', 'mysql', 'sql' ] : Use switch statement inside a map function and 
 // console each item by using switch statement.
 
 array1 = ['car', 1, 5, 'js', 'node js', 'mysql', 'sql' ];
-
 const arrayToMap = array1.map((value) => {
     switch (value) {
         case 'car':
@@ -106,12 +106,8 @@ let obj1 = {a:'one',
 const array5 = Object.keys(obj1).reverse();      
 console.log(array5);
 
-
-
-
 // 7. { data: [{a:'one', id:'22'}, {a:'four', id:'7'}, {a:'six', b:'2'},  {a:'sixty', id:'24'},  {a:'five', id:'212'}] }
 // From the given object remove the data array item with id as '24'. (consider that the data arrays order will be different every time you get, so write code in such a way that given any object it will remove the item with id as 24 if it exists )
-
 
 let obj2 = { data: [{a:'one', id:'22'}, {a:'four', id:'7'}, {a:'six', b:'2'},  {a:'sixty', id:'24'},  {a:'five', id:'212'}] };
 
@@ -126,13 +122,9 @@ const datas = obj2.data.filter((value, index)=>{
 );
 console.log(datas);
 
-
-
-
 // 8. Given var string = "Javascript is the King of the web."
 
 var str1 = "Javascript is the King of the web."
-
 
 // a) Get the length of the string. 
 
@@ -145,8 +137,7 @@ console.log(str2);
 
 // c) Execute the above code from browser console. 
 
-str2=str1.slice(0,8);
-console.log(str2);
+console.log(str1.slice(0,8));
 
 
 // d) Get the position of the word "King" in string. 
@@ -156,13 +147,13 @@ console.log(str1.indexOf("King"));
 
 // e) Replace "King" with "Emperor". 
 
-str1=str1.replace("King","Emperor");
-console.log(str1);
+str11=str1.replace("King","Emperor");
+console.log(str11);
 
 // f) Insert the string "new” before the word "King". 
 
-str1=str1.replace("King","new”King");
-console.log(str1);
+str10=str1.replace("King","new King");
+console.log(str10);
 
 // g) Get the words in string as an array.
 
