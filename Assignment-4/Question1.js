@@ -28,7 +28,6 @@ function basicDetails(){
     let name = prompt("enter your name");
     let age = prompt("Enter your age");
     let phone = prompt("enter your phone number");
-    console.log(name, age, phone);
     localStorage.setItem('name', name);
     localStorage.setItem('age', age);
     localStorage.setItem('phone', phone);
@@ -68,6 +67,8 @@ submit.addEventListener('click', storeCookies)
 // QUESTION4 - Redirect to the homepage of google from the console.
 
 // document.location.href = 'http://google.com'
+
+// I commented this because this was redirecting to google when the page is loaded.
 
 // -------------------------------------------------------------------------------------------------------------------------------------
 //  QUESTION5 - Create a div with background color red, create buttons
@@ -143,17 +144,7 @@ document.addEventListener('keyup', (event) => {
     if (ctrl1 === 'Enter'){
         if (event.ctrlKey) {
             alert("Ctrl+enter key is pressed")
-        }
-        
+        }  
     }
-    console.log(ctrl1)
-
-
-    // if (ctrl1 === 'Enter') {
-    //     return;
-    // }
-    // if (event.ctrlKey) {
-    //     alert("Ctrl+enter key is pressed")
-    // }
   },);
 //-------------------------------------------------------------------------------------------------------------------------------------
