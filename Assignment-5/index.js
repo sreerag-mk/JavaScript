@@ -1,3 +1,11 @@
+qq.forEach(function (val) {
+
+    one = parseInt(value);
+
+    console.log(`${val}  ${typeof one}`);
+
+});
+
 //     ASSIGNMENT - 5
 //     --------------
 

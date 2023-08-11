@@ -35,7 +35,7 @@ const arrayToMap = array1.map((value) => {
         
         default:
             console.log("nothing to console ");
-            break;
+            break;    
     }
 })
 

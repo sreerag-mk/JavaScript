@@ -35,4 +35,4 @@ console.log(concatenatedString)
 
 //Write a JS program to show an alert message on the loading of the website.
 
-alert("hello, This is from the JavaScript file")
+window.alert("hello, This is from the JavaScript file");

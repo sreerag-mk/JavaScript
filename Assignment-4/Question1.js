@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
+
 // -------------------------------------------------------------------------------------------------------------------------------------
 // QUESTION1 - Write a function to:
 //      a. Calculate the height of the end user's browser screen
