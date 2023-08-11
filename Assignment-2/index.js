@@ -5,7 +5,7 @@
 let numbers = ["1", "2", "3", "4", "5", "6", "7"];
 
 // a. Remove number "6" from the array and console the length of the array.
-
+// Don't hardcode the position of 6. find it.
 numbers.splice(5, 1);
 
 console.log(
@@ -19,6 +19,7 @@ console.log(numbers);
 numbers = ["1", "2", "3", "4", "5", "6", "7"];
 
 numbers.forEach((number) => {
+  // if the array contains floating points, will it work??
   number = parseInt(number);
   console.log(`The type of ${number} is ${typeof number}`);
 });
@@ -26,10 +27,11 @@ numbers.forEach((number) => {
 // c. Remove last three items of the array, use JS provided array method, then console the array and then add "one" and "two" (strings) to the beginning of the array and console the array.
 
 numbers = ["1", "2", "3", "4", "5", "6", "7"];
-
+//can we use any other methods other than splice?
 let arrayLength = numbers.length;
 numbers.splice(arrayLength - 3, 3);
 console.log(numbers);
+//check other methods
 numbers.splice(0, 0, "one", "two");
 console.log(numbers);
 
@@ -44,6 +46,7 @@ numbers.forEach((number) => {
   number = parseInt(number);
   temp = temp + number;
 });
+//check the output
 console.log(
   `The string concatenation of all items of the array is ${concatinatedString}`
 );
@@ -76,6 +79,8 @@ numbers = ["1", "2", "3", "4", "5", "6", "7"];
 
 for (let item of arrayTocompare) {
   for (let value of numbers) {
+    //no need to check the value
+    //use ===
     if ((typeof item == typeof value) & (item == value)) {
       console.log(`The same items in both arrays are ${item}`);
     }
