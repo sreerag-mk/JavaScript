@@ -1,0 +1,17 @@
+Corrections:
+
+	1. Changed Scripts tag.
+
+	2. Changed const to let.
+
+	3. Used template literals in src area.
+
+	4. Changed getElementsById to getElementById
+
+	5. Added bracket to the src area.
+
+	6. Changed img to imgs (ID).
+
+	7. Changed <= to =.
+
+	8. Added sigle quotes in if function statement.
