@@ -2,52 +2,52 @@
 //Why have you used let key word?
 //Use camel case for variable names.
 // Check the variable declarations in JavaScript and select the one that is appropriate for your variables.
-let nullvariable = null;
-let numbervariable = 53;
-let stringvariable = "sreerag";
-let symbolvariable = Symbol("hello");
-let booleanvariable = false;
-let bigintvariable = BigInt(34);
-let undefinedvariable = undefined;
-let arrayvariable = ["array1", "array2", "array3"];
-let objectvariable = {
+const nullVariable = null;
+const numberVariable = 53;
+const stringVariable = "sreerag";
+const symbolVariable = Symbol("hello");
+const booleanVariable = false;
+const bigintVariable = BigInt(34);
+const undefinedVariable = undefined;
+const arrayVariable = ["array1", "array2", "array3"];
+const objectVariable = {
   name: "sreerag",
   age: 23,
 };
 
-console.log("the type of nullvariable is" + typeof nullvariable);
-console.log("the type of numbervariable is" + typeof numbervariable);
-console.log("the type of stringvariable is" + typeof stringvariable);
-console.log("the type of symbolvariable is", symbolvariable);
-console.log("the type of booleanvariable is" + typeof booleanvariable);
-console.log("the type of bigintvariable is" + typeof bigintvariable);
-console.log("the type of undefinedvariable is" + typeof undefinedvariable);
-console.log("the type of objectvariable is" + typeof objectvariable);
-console.log("the type of arrayvariable is" + typeof arrayvariable);
+console.log("the type of nullvariable is" + typeof nullVariable);
+console.log("the type of numberVariable is" + typeof numberVariable);
+console.log("the type of stringVariable is" + typeof stringVariable);
+console.log("the type of symbolVariable is", symbolVariable);
+console.log("the type of booleanVariable is" + typeof booleanVariable);
+console.log("the type of bigintVariable is" + typeof bigintVariable);
+console.log("the type of undefinedVariable is" + typeof undefinedVariable);
+console.log("the type of objectVariable is" + typeof objectVariable);
+console.log("the type of arrayVariable is" + typeof arrayVariable);
 
 //Create a concatenated string with the above variables using template literals and without template literals. (separate each variable by space in the string)
 
-let concatenatedStringwithtemplateliterals = `The concatenated string is ${nullvariable} ${numbervariable} ${stringvariable}  ${booleanvariable} ${bigintvariable} ${undefinedvariable} ${objectvariable} ${arrayvariable}`;
-console.log(concatenatedStringwithtemplateliterals);
-let concatenatedString =
+const concatenatedStringWithTemplateLiterals = `The concatenated string is ${nullVariable} ${numberVariable} ${stringVariable}  ${booleanVariable} ${bigintVariable} ${undefinedVariable} ${objectVariable} ${arrayVariable}`;
+console.log(concatenatedStringWithTemplateLiterals);
+const concatenatedString =
   "The concatenated string is" +
-  nullvariable +
+  nullVariable +
   " " +
-  numbervariable +
+  numberVariable +
   " " +
-  stringvariable +
+  stringVariable +
   " " +
-  stringvariable +
+  stringVariable +
   " " +
-  booleanvariable +
+  booleanVariable +
   " " +
-  bigintvariable +
+  bigintVariable +
   " " +
-  undefinedvariable +
+  undefinedVariable +
   " " +
-  objectvariable +
+  objectVariable +
   " " +
-  arrayvariable;
+  arrayVariable;
 console.log(concatenatedString);
 
 //Write a JS program to show an alert message on the loading of the website.
