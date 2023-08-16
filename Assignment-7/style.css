@@ -1,0 +1,85 @@
+*{
+    margin:0%;
+    padding: 0;
+    box-sizing: border-box;
+}
+.box{
+    width: 100%;
+    height: 25vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    background-color: aqua;
+    text-align: center;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    justify-self: center;
+    align-items: center;
+    background-color: aqua;
+}
+.grid{
+    display: grid;
+    width: 50%;
+    grid-template-areas:
+     'MyArea1 MyArea2 MyArea3'
+     'MyArea4 MyArea5 MyArea6'
+     'MyArea7 MyArea8 MyArea9';
+    gap: 10px;
+    row-gap: 10px;
+    column-gap: 10px;
+    place-items: center;
+    margin: auto;
+    background-color: gray;
+}
+.finalResult{
+    width: 50%;
+    height: 50vh;
+    background-color: aqua;
+    display: none;
+    margin: auto;
+    font-size: 4em;
+}
+#id1{
+    grid-area: MyArea1;
+}
+#id2{
+    grid-area: MyArea2;
+}
+#id3{
+    grid-area: MyArea3;
+}
+#id4{
+    grid-area: MyArea4;
+}
+#id5{
+    grid-area: MyArea5;
+}
+#id6{
+    grid-area: MyArea6;
+}
+#id7{
+    grid-area: MyArea7;
+}
+#id8{
+    grid-area: MyArea8;
+}
+#id9{
+    grid-area: MyArea9;
+}
+.box{
+    font-size: 100px;
+    text-align: center;
+}
+button{
+    margin-bottom: 50px;
+    height: 30px;
+    width: 60px;
+    border-radius: 4px;
+}
