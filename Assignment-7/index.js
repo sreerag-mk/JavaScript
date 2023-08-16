@@ -157,6 +157,7 @@ function winner(array, winner, id){
             gridId.style.display = "none"
             finalResult.style.display = "block"
             finalResult.innerHTML = `The winner is ${winner}`
+            finalResult.style.textAlign = "center"
          }
          ,1000);
     }else if(clicks === 9){
@@ -169,6 +170,13 @@ function winner(array, winner, id){
         id7.style.backgroundColor = "gray"
         id8.style.backgroundColor = "gray"
         id9.style.backgroundColor = "gray"
+        setTimeout(()=> {
+            gridId.style.display = "none"
+            finalResult.style.display = "block"
+            finalResult.innerHTML = `Its a draw`
+            finalResult.style.textAlign = "center"
+         }
+         ,1000);
     }
 }
 
