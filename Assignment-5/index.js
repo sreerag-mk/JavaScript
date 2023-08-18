@@ -1,7 +1,7 @@
 //     ASSIGNMENT - 5
 //     --------------
 
-// QUESTION 1 - 
+// QUESTION 1 -
 
 // Make a form with fields name, phone number, place, company name, pin code
 
@@ -9,7 +9,7 @@
 
 // pin code and mobile number fields should not be submitted with non-integer values, if so, then show an error msg stating only numbers are allowed.
 
-// The minimum length of the phone number should be 10, otherwise, show the corresponding error msg below the mobile no. field. 
+// The minimum length of the phone number should be 10, otherwise, show the corresponding error msg below the mobile no. field.
 
 // On submission of the form, store the details in the local storage and clear the form. (it should stay on the same page don't refresh the page).
 
@@ -49,8 +49,11 @@ const validateInputs = () => {
   const companyValue = company.value.trim();
   const pincodeValue = pincode.value.trim();
 
+  // try other ways.
+  // can we do it without setSuccess function
   if (userNameValue === "") {
     setError(userName, "Username is required");
+    // check any other methods other than adding 'ok'
     userName.classList.remove("ok");
   } else {
     setSuccess(userName);
@@ -105,6 +108,7 @@ const validateInputs = () => {
     company.matches(".ok") === true &&
     pincode.matches(".ok") === true
   ) {
+    //store it as a single object
     localStorage.setItem("username", userNameValue);
     localStorage.setItem("phone", phoneValue);
     localStorage.setItem("place", placeValue);
@@ -126,6 +130,7 @@ form.addEventListener("submit", (e) => {
 });
 
 const btnPopulate = document.getElementById("populate");
+// why only username condition is checking here
 if (localStorage.getItem("username") !== "") {
   btnPopulate.addEventListener("click", () => {
     userName.value = localStorage.getItem("username");
@@ -138,13 +143,11 @@ if (localStorage.getItem("username") !== "") {
   btnPopulate.style.display = "none";
 }
 
-
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// QUESTION 2 - 
+// QUESTION 2 -
 
 // Create a button and div using JS, when clicked on the button your basic details should be shown in the div. The static HTML file should only contain the basic HTML structure, no div/buttons.
-
 
 const localName = localStorage.getItem("username");
 const localPhone = localStorage.getItem("phone");
@@ -172,28 +175,26 @@ btn.addEventListener("click", () => {
   }
 });
 
-
-
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// QUESTION 3 - 
+// QUESTION 3 -
 // Create a private variable and console it by accessing it.
 
 function private() {
-    const _privateVariable = "hello im a private variable";
-    console.log(_privateVariable);
-  }
-  private();
-  
+  const _privateVariable = "hello im a private variable";
+  console.log(_privateVariable);
+}
+private();
+
 // console.log(_privateVariable)
 // This will give an error because the above variable is a private variable
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// QUESTION 4 - 
+// QUESTION 4 -
 // Create a static variable and console it by accessing it.
-class staticVariableClass{
-    static staticVariable = "hello this is a static variable";
+class staticVariableClass {
+  static staticVariable = "hello this is a static variable";
 }
 
-console.log(staticVariableClass.staticVariable)
+console.log(staticVariableClass.staticVariable);
