@@ -1,11 +1,3 @@
-qq.forEach(function (val) {
-
-    one = parseInt(value);
-
-    console.log(`${val}  ${typeof one}`);
-
-});
-
 //     ASSIGNMENT - 5
 //     --------------
 
@@ -24,123 +16,128 @@ qq.forEach(function (val) {
 // Make a prepopulate button, which when clicked will populate the form with values in the local storage if it exists, otherwise, the button will be disabled.
 
 // Note: The page shouldn't refresh on submitting the form in any of the questions and show error messages below the appropriate fields only.
-
-const form = document.getElementById('form');
-const userName = document.getElementById('username');
-const phone = document.getElementById('phone');
-const place = document.getElementById('place');
-const company = document.getElementById('company');
-const pincode = document.getElementById('pincode');
+/* eslint-disable no-restricted-globals */
+const form = document.getElementById("form");
+const userName = document.getElementById("username");
+const phone = document.getElementById("phone");
+const place = document.getElementById("place");
+const company = document.getElementById("company");
+const pincode = document.getElementById("pincode");
 
 const setError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
 
-    errorDisplay.innerText = message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success')
-}
+  errorDisplay.innerText = message;
+  inputControl.classList.add("error");
+  inputControl.classList.remove("success");
+};
 
-const setSuccess = element => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+const setSuccess = (element) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
 
-    errorDisplay.innerText = '';
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
+  errorDisplay.innerText = "";
+  inputControl.classList.add("success");
+  inputControl.classList.remove("error");
 };
 
 const validateInputs = () => {
-    const userNameValue = userName.value.trim();
-    const phoneValue = phone.value.trim();
-    const placeValue = place.value.trim();
-    const companyValue = company.value.trim();
-    const pincodeValue = pincode.value.trim();
+  const userNameValue = userName.value.trim();
+  const phoneValue = phone.value.trim();
+  const placeValue = place.value.trim();
+  const companyValue = company.value.trim();
+  const pincodeValue = pincode.value.trim();
 
-    if(userNameValue === '') {
-        setError(userName, 'Username is required');
-        userName.classList.remove('ok');
-    } else {
-        setSuccess(userName);
-        userName.classList.add('ok');
-    }
+  if (userNameValue === "") {
+    setError(userName, "Username is required");
+    userName.classList.remove("ok");
+  } else {
+    setSuccess(userName);
+    userName.classList.add("ok");
+  }
 
-    if(phoneValue === '') {
-        setError(phone, 'phone is required');
-        phone.classList.remove('ok');
-    }else if (isNaN(phoneValue)){
-        setError(phone, 'only numbers are allowed');
-        phone.classList.remove('ok');
-    }else if (phoneValue.length < 10 ) {
-        setError(phone, 'Phonw number must be at least 10 character.')
-        phone.classList.remove('ok');
-    }else {
-        setSuccess(phone);
-        phone.classList.add('ok');
-    }
+  if (phoneValue === "") {
+    setError(phone, "phone is required");
+    phone.classList.remove("ok");
+  } else if (isNaN(phoneValue)) {
+    setError(phone, "only numbers are allowed");
+    phone.classList.remove("ok");
+  } else if (phoneValue.length < 10) {
+    setError(phone, "Phonw number must be at least 10 character.");
+    phone.classList.remove("ok");
+  } else {
+    setSuccess(phone);
+    phone.classList.add("ok");
+  }
 
-    if(placeValue === '') {
-        setError(place, 'Place is required');
-        place.classList.remove('ok');
-    }else {
-        setSuccess(place);
-        place.classList.add('ok');
-    }
+  if (placeValue === "") {
+    setError(place, "Place is required");
+    place.classList.remove("ok");
+  } else {
+    setSuccess(place);
+    place.classList.add("ok");
+  }
 
-    if(companyValue === '') {
-        setError(company, 'Company is required');
-        company.classList.remove('ok');
-    } else {
-        setSuccess(company);
-        company.classList.add('ok');
-    }
+  if (companyValue === "") {
+    setError(company, "Company is required");
+    company.classList.remove("ok");
+  } else {
+    setSuccess(company);
+    company.classList.add("ok");
+  }
 
-    if(pincodeValue === '') {
-        setError(pincode, 'Pincode required');
-        pincode.classList.remove('ok');
-    }else if (isNaN(pincodeValue)){
-        setError(pincode, 'only numbers are allowed');
-        pincode.classList.remove('ok');
-    }
-     else {
-        setSuccess(pincode);
-        pincode.classList.add('ok');
-    }
+  if (pincodeValue === "") {
+    setError(pincode, "Pincode required");
+    pincode.classList.remove("ok");
+  } else if (isNaN(pincodeValue)) {
+    setError(pincode, "only numbers are allowed");
+    pincode.classList.remove("ok");
+  } else {
+    setSuccess(pincode);
+    pincode.classList.add("ok");
+  }
 
-    if ( userName.matches(".ok") === true && phone.matches(".ok") === true && place.matches(".ok") === true && company.matches(".ok") === true && pincode.matches(".ok") === true){
-        localStorage.setItem('username', userNameValue)
-        localStorage.setItem('phone', phoneValue)
-        localStorage.setItem('place', placeValue)
-        localStorage.setItem('company', companyValue)
-        localStorage.setItem('pincode', pincodeValue)
-        // form.reset();
-        userName.value = "";
-        phone.value = "";
-        place.value = "";
-        company.value = "";
-        pincode.value = "";
-    }
+  if (
+    userName.matches(".ok") === true &&
+    phone.matches(".ok") === true &&
+    place.matches(".ok") === true &&
+    company.matches(".ok") === true &&
+    pincode.matches(".ok") === true
+  ) {
+    localStorage.setItem("username", userNameValue);
+    localStorage.setItem("phone", phoneValue);
+    localStorage.setItem("place", placeValue);
+    localStorage.setItem("company", companyValue);
+    localStorage.setItem("pincode", pincodeValue);
+    // form.reset();
+    userName.value = "";
+    phone.value = "";
+    place.value = "";
+    company.value = "";
+    pincode.value = "";
+  }
 };
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    validateInputs();
+  validateInputs();
 });
 
-if (localStorage.getItem('username') != ''){
-    btnPopulate = document.getElementById('populate')
-    btnPopulate.addEventListener('click', () => {
-        userName.value = localStorage.getItem('username')
-        phone.value = localStorage.getItem('phone')
-        place.value = localStorage.getItem('place')
-        company.value = localStorage.getItem('company')
-        pincode.value = localStorage.getItem('pincode')
-
-    })
-}else{
-    btnPopulate.style.display = 'none'
+const btnPopulate = document.getElementById("populate");
+if (localStorage.getItem("username") !== "") {
+  btnPopulate.addEventListener("click", () => {
+    userName.value = localStorage.getItem("username");
+    phone.value = localStorage.getItem("phone");
+    place.value = localStorage.getItem("place");
+    company.value = localStorage.getItem("company");
+    pincode.value = localStorage.getItem("pincode");
+  });
+} else {
+  btnPopulate.style.display = "none";
 }
+
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -148,32 +145,34 @@ if (localStorage.getItem('username') != ''){
 
 // Create a button and div using JS, when clicked on the button your basic details should be shown in the div. The static HTML file should only contain the basic HTML structure, no div/buttons.
 
-const localName = localStorage.getItem('username')
-const localPhone = localStorage.getItem('phone')
-const localPlace = localStorage.getItem('place')
-const localCompany = localStorage.getItem('company')
-const localPincode = localStorage.getItem('pincode')
 
-const detailDiv = document.createElement('div')
-detailDiv.innerHTML = `name : ${localName}  \n phone : ${localPhone} \n place : ${localPlace} \n company : ${localCompany} \n pincode : ${localPincode}`
-detailDiv.style.width = "200px"
-detailDiv.style.height = "200px"
-detailDiv.style.color = "white"
-document.body.appendChild(detailDiv)
-detailDiv.style.display = "none"
-const btn = document.createElement('button')
-btn.innerHTML = "clickme"
-btn.style.margin = '20px'
-document.body.appendChild(btn)
+const localName = localStorage.getItem("username");
+const localPhone = localStorage.getItem("phone");
+const localPlace = localStorage.getItem("place");
+const localCompany = localStorage.getItem("company");
+const localPincode = localStorage.getItem("pincode");
 
-btn.addEventListener('click', () => {
-    if ( detailDiv.style.display == "none" ){
-        detailDiv.style.display = "block"
-    }
-    else{
-        detailDiv.style.display = "none"
-    }
-})
+const detailDiv = document.createElement("div");
+detailDiv.innerHTML = `name : ${localName}  \n phone : ${localPhone} \n place : ${localPlace} \n company : ${localCompany} \n pincode : ${localPincode}`;
+detailDiv.style.width = "200px";
+detailDiv.style.height = "200px";
+detailDiv.style.color = "white";
+document.body.appendChild(detailDiv);
+detailDiv.style.display = "none";
+const btn = document.createElement("button");
+btn.innerHTML = "clickme";
+btn.style.margin = "20px";
+document.body.appendChild(btn);
+
+btn.addEventListener("click", () => {
+  if (detailDiv.style.display === "none") {
+    detailDiv.style.display = "block";
+  } else {
+    detailDiv.style.display = "none";
+  }
+});
+
+
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -181,10 +180,11 @@ btn.addEventListener('click', () => {
 // Create a private variable and console it by accessing it.
 
 function private() {
-    _privateVariable = "hello im a private variable";
-    console.log(_privateVariable)
-}
-private()
+    const _privateVariable = "hello im a private variable";
+    console.log(_privateVariable);
+  }
+  private();
+  
 // console.log(_privateVariable)
 // This will give an error because the above variable is a private variable
 
