@@ -87,10 +87,20 @@ submit.addEventListener("click", storeCookies);
 //  c. to show your basic details on the div, the details should hide/show, on the click.
 
 document.getElementById("toHide").onclick = function () {
-  document.getElementById("mainDiv").style.display = "none";
+  // eslint-disable-next-line no-constant-condition, no-cond-assign
+  if (document.getElementById("mainDiv").style.visibility !== "hidden") {
+    document.getElementById("mainDiv").style.visibility = "hidden";
+  } else {
+    document.getElementById("mainDiv").style.visibility = "visible";
+  }
+  console.log(`button clicked`);
 };
 document.getElementById("toChangeColor").onclick = function () {
-  document.getElementById("mainDiv").style.backgroundColor = "green";
+  if (document.getElementById("mainDiv").style.backgroundColor === "red") {
+    document.getElementById("mainDiv").style.backgroundColor = "green";
+  } else {
+    document.getElementById("mainDiv").style.backgroundColor = "red";
+  }
 };
 document.getElementById("toShowDetails").onclick = function () {
   if (document.getElementById("content").style.display !== "none") {

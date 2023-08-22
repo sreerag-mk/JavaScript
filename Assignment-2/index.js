@@ -27,7 +27,7 @@ numbers.forEach((number) => {
 
 numbers = ["1", "2", "3", "4", "5", "6", "7"];
 
-let arrayLength = numbers.length;
+const arrayLength = numbers.length;
 numbers.splice(arrayLength - 3, 3);
 console.log(numbers);
 numbers.splice(0, 0, "one", "two");
@@ -53,7 +53,7 @@ console.log(`The sum of all the items of the array is ${temp}`);
 
 numbers = ["1", "2", "3", "4", "5", "6", "7"];
 
-let filterArray = numbers.filter((item) => {
+const filterArray = numbers.filter((item) => {
   return item != "3";
 });
 console.log(`the filter array is ${filterArray}`);
