@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 //     ASSIGNMENT - 5
 //     --------------
 
@@ -16,7 +17,7 @@
 // Make a prepopulate button, which when clicked will populate the form with values in the local storage if it exists, otherwise, the button will be disabled.
 
 // Note: The page shouldn't refresh on submitting the form in any of the questions and show error messages below the appropriate fields only.
-/* eslint-disable no-restricted-globals */
+
 const form = document.getElementById("form");
 const userName = document.getElementById("username");
 const phone = document.getElementById("phone");
@@ -24,22 +25,21 @@ const place = document.getElementById("place");
 const company = document.getElementById("company");
 const pincode = document.getElementById("pincode");
 
-const setError = (element, message) => {
+const btnPopulate = document.getElementById("populate");
+
+const setError = (element, Check, message) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
 
-  errorDisplay.innerText = message;
-  inputControl.classList.add("error");
-  inputControl.classList.remove("success");
-};
-
-const setSuccess = (element) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
-
-  errorDisplay.innerText = "";
-  inputControl.classList.add("success");
-  inputControl.classList.remove("error");
+  if (Check === true) {
+    errorDisplay.innerText = "";
+    inputControl.classList.add("success");
+    inputControl.classList.remove("error");
+  } else {
+    errorDisplay.innerText = message;
+    inputControl.classList.add("error");
+    inputControl.classList.remove("success");
+  }
 };
 
 const validateInputs = () => {
@@ -49,77 +49,143 @@ const validateInputs = () => {
   const companyValue = company.value.trim();
   const pincodeValue = pincode.value.trim();
 
-  // try other ways.
-  // can we do it without setSuccess function
+  let userNameCheck = false;
+  let phoneCheck = false;
+  let placeCheck = false;
+  let companyCheck = false;
+  let pincodeCheck = false;
+
+  // try other ways.-----------------------------------------------------------------------------------------------------------------------------------------------------------
+  // can we do it without setSuccess function-----------------------------------------------------------------------------------------------------------------------------------------------------------
   if (userNameValue === "") {
-    setError(userName, "Username is required");
-    // check any other methods other than adding 'ok'
-    userName.classList.remove("ok");
+    userNameCheck = false;
+    setError(userName, userNameCheck, "Username is required");
+    // check any other methods other than adding 'ok'----------------------------------------------------------------------------------------------------------------------------------------------------------- // COMPLETED ( ADDED A VARIABLE AND CHECKED TRUE OR FALSE )
   } else {
-    setSuccess(userName);
-    userName.classList.add("ok");
+    // setSuccess(userName);
+    userNameCheck = true;
+    setError(userName, userNameCheck);
   }
 
   if (phoneValue === "") {
-    setError(phone, "phone is required");
-    phone.classList.remove("ok");
+    phoneCheck = false;
+    setError(phone, phoneCheck, "phone is required");
   } else if (isNaN(phoneValue)) {
-    setError(phone, "only numbers are allowed");
-    phone.classList.remove("ok");
+    phoneCheck = false;
+    setError(phone, phoneCheck, "only numbers are allowed");
   } else if (phoneValue.length < 10) {
-    setError(phone, "Phonw number must be at least 10 character.");
-    phone.classList.remove("ok");
+    phoneCheck = false;
+    setError(phone, phoneCheck, "Phonw number must be at least 10 character.");
   } else {
-    setSuccess(phone);
-    phone.classList.add("ok");
+    // setSuccess(phone);
+    phoneCheck = true;
+    setError(phone, phoneCheck);
   }
 
   if (placeValue === "") {
-    setError(place, "Place is required");
-    place.classList.remove("ok");
+    placeCheck = false;
+    setError(place, placeCheck, "Place is required");
   } else {
-    setSuccess(place);
-    place.classList.add("ok");
+    // setSuccess(place);
+    placeCheck = true;
+    setError(place, placeCheck);
   }
 
   if (companyValue === "") {
-    setError(company, "Company is required");
-    company.classList.remove("ok");
+    companyCheck = false;
+    setError(company, companyCheck, "Company is required");
   } else {
-    setSuccess(company);
-    company.classList.add("ok");
+    // setSuccess(company);
+    companyCheck = true;
+    setError(company, companyCheck);
   }
 
   if (pincodeValue === "") {
-    setError(pincode, "Pincode required");
-    pincode.classList.remove("ok");
+    pincodeCheck = false;
+    setError(pincode, pincodeCheck, "Pincode required");
   } else if (isNaN(pincodeValue)) {
-    setError(pincode, "only numbers are allowed");
-    pincode.classList.remove("ok");
+    pincodeCheck = false;
+    setError(pincode, pincodeCheck, "only numbers are allowed");
   } else {
-    setSuccess(pincode);
-    pincode.classList.add("ok");
+    // setSuccess(pincode);
+    pincodeCheck = true;
+    setError(pincode, pincodeCheck);
   }
 
   if (
-    userName.matches(".ok") === true &&
-    phone.matches(".ok") === true &&
-    place.matches(".ok") === true &&
-    company.matches(".ok") === true &&
-    pincode.matches(".ok") === true
+    userNameCheck === true &&
+    phoneCheck === true &&
+    placeCheck === true &&
+    companyCheck === true &&
+    pincodeCheck === true
   ) {
-    //store it as a single object
-    localStorage.setItem("username", userNameValue);
-    localStorage.setItem("phone", phoneValue);
-    localStorage.setItem("place", placeValue);
-    localStorage.setItem("company", companyValue);
-    localStorage.setItem("pincode", pincodeValue);
-    // form.reset();
+    //store it as a single object-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    const singleObj = {
+      name: userNameValue,
+      phone: phoneValue,
+      place: placeValue,
+      company: companyValue,
+      pincode: pincodeValue,
+    };
+    const obj = JSON.stringify(singleObj);
+    localStorage.setItem("value", obj);
     userName.value = "";
     phone.value = "";
     place.value = "";
     company.value = "";
     pincode.value = "";
+
+    const obj2 = JSON.parse(localStorage.getItem("value"));
+    const storedUsername = obj2["name"];
+    const storedPhone = obj2["phone"];
+    const storedPlace = obj2["place"];
+    const storedCompany = obj2["company"];
+    const storedPincode = obj2["pincode"];
+    // why only username condition is checking here-----------------------------------------------------------------------------------------------------------------------------------------------------------// COMPLETED
+    if (
+      storedUsername !== "" &&
+      storedPhone !== "" &&
+      storedPlace !== "" &&
+      storedCompany !== "" &&
+      storedPincode !== ""
+    ) {
+      btnPopulate.addEventListener("click", () => {
+        userName.value = storedUsername;
+        phone.value = storedPhone;
+        place.value = storedPlace;
+        company.value = storedCompany;
+        pincode.value = storedPincode;
+      });
+    } else {
+      btnPopulate.style.display = "none";
+    }
+
+    //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    // QUESTION 2 -
+
+    // Create a button and div using JS, when clicked on the button your basic details should be shown in the div. The static HTML file should only contain the basic HTML structure, no div/buttons.
+
+    const detailDiv = document.createElement("div");
+    detailDiv.innerHTML = `name : ${storedUsername}  \n phone : ${storedPhone} \n place : ${storedPlace} \n company : ${storedCompany} \n pincode : ${storedPincode}`;
+    detailDiv.style.width = "200px";
+    detailDiv.style.height = "200px";
+    detailDiv.style.color = "white";
+    document.body.appendChild(detailDiv);
+    detailDiv.style.display = "none";
+    const btn = document.createElement("button");
+    btn.innerHTML = "clickme";
+    btn.style.margin = "20px";
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", () => {
+      if (detailDiv.style.display === "none") {
+        detailDiv.style.display = "block";
+      } else {
+        detailDiv.style.display = "none";
+      }
+    });
   }
 };
 
@@ -127,52 +193,6 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   validateInputs();
-});
-
-const btnPopulate = document.getElementById("populate");
-// why only username condition is checking here
-if (localStorage.getItem("username") !== "") {
-  btnPopulate.addEventListener("click", () => {
-    userName.value = localStorage.getItem("username");
-    phone.value = localStorage.getItem("phone");
-    place.value = localStorage.getItem("place");
-    company.value = localStorage.getItem("company");
-    pincode.value = localStorage.getItem("pincode");
-  });
-} else {
-  btnPopulate.style.display = "none";
-}
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-// QUESTION 2 -
-
-// Create a button and div using JS, when clicked on the button your basic details should be shown in the div. The static HTML file should only contain the basic HTML structure, no div/buttons.
-
-const localName = localStorage.getItem("username");
-const localPhone = localStorage.getItem("phone");
-const localPlace = localStorage.getItem("place");
-const localCompany = localStorage.getItem("company");
-const localPincode = localStorage.getItem("pincode");
-
-const detailDiv = document.createElement("div");
-detailDiv.innerHTML = `name : ${localName}  \n phone : ${localPhone} \n place : ${localPlace} \n company : ${localCompany} \n pincode : ${localPincode}`;
-detailDiv.style.width = "200px";
-detailDiv.style.height = "200px";
-detailDiv.style.color = "white";
-document.body.appendChild(detailDiv);
-detailDiv.style.display = "none";
-const btn = document.createElement("button");
-btn.innerHTML = "clickme";
-btn.style.margin = "20px";
-document.body.appendChild(btn);
-
-btn.addEventListener("click", () => {
-  if (detailDiv.style.display === "none") {
-    detailDiv.style.display = "block";
-  } else {
-    detailDiv.style.display = "none";
-  }
 });
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -196,5 +216,4 @@ private();
 class staticVariableClass {
   static staticVariable = "hello this is a static variable";
 }
-
 console.log(staticVariableClass.staticVariable);
