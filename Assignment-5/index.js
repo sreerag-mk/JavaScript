@@ -25,6 +25,12 @@ const place = document.getElementById("place");
 const company = document.getElementById("company");
 const pincode = document.getElementById("pincode");
 
+let storedUsername = "Sreerag M K";
+    let storedPhone = "8921908589";
+    let storedPlace = "Azhikode";
+    let storedCompany = "Coddle tech";
+    let storedPincode = "644646464";
+
 const btnPopulate = document.getElementById("populate");
 
 const setError = (element, Check, message) => {
@@ -137,11 +143,13 @@ const validateInputs = () => {
     pincode.value = "";
 
     const obj2 = JSON.parse(localStorage.getItem("value"));
-    const storedUsername = obj2["name"];
-    const storedPhone = obj2["phone"];
-    const storedPlace = obj2["place"];
-    const storedCompany = obj2["company"];
-    const storedPincode = obj2["pincode"];
+     storedUsername = obj2["name"];
+     storedPhone = obj2["phone"];
+     storedPlace = obj2["place"];
+     storedCompany = obj2["company"];
+     storedPincode = obj2["pincode"];
+
+    console.log(typeof storedUsername)
     // why only username condition is checking here-----------------------------------------------------------------------------------------------------------------------------------------------------------// COMPLETED
     if (
       storedUsername !== "" &&
@@ -167,27 +175,29 @@ const validateInputs = () => {
 
     // Create a button and div using JS, when clicked on the button your basic details should be shown in the div. The static HTML file should only contain the basic HTML structure, no div/buttons.
 
-    const detailDiv = document.createElement("div");
-    detailDiv.innerHTML = `name : ${storedUsername}  \n phone : ${storedPhone} \n place : ${storedPlace} \n company : ${storedCompany} \n pincode : ${storedPincode}`;
-    detailDiv.style.width = "200px";
-    detailDiv.style.height = "200px";
-    detailDiv.style.color = "white";
-    document.body.appendChild(detailDiv);
-    detailDiv.style.display = "none";
-    const btn = document.createElement("button");
-    btn.innerHTML = "clickme";
-    btn.style.margin = "20px";
-    document.body.appendChild(btn);
-
-    btn.addEventListener("click", () => {
-      if (detailDiv.style.display === "none") {
-        detailDiv.style.display = "block";
-      } else {
-        detailDiv.style.display = "none";
-      }
-    });
-  }
+}
 };
+
+const detailDiv = document.createElement("div");
+detailDiv.style.width = "200px";
+detailDiv.style.height = "200px";
+detailDiv.style.color = "white";
+document.body.appendChild(detailDiv);
+detailDiv.style.display = "none";
+const btn = document.createElement("button");
+btn.innerHTML = "clickme";
+btn.style.margin = "20px";
+document.body.appendChild(btn);
+
+btn.addEventListener("click", () => {
+    console.log(storedCompany)
+    detailDiv.innerHTML = `name : ${storedUsername}  \n phone : ${storedPhone} \n place : ${storedPlace} \n company : ${storedCompany} \n pincode : ${storedPincode}`;
+    if (detailDiv.style.display === "none") {
+        detailDiv.style.display = "block";
+    } else {
+        detailDiv.style.display = "none";
+    }
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
